@@ -1,0 +1,84 @@
+doctype html
+head
+    meta(name="viewport" content="width=device-width,initial-scale=1")
+    link(href="bower_components/bulma/css/bulma.css" rel="stylesheet")
+    link(href="stylesheets/main.css" rel="stylesheet")
+    script(src="bower_components/jquery/dist/jquery.js")
+    script(src="https://cdn.firebase.com/js/client/2.2.6/firebase.js")
+body
+    br
+    br
+    .row
+        h1.title.is-1.text-center Welcome Back Britton!
+    br
+    .row
+        .columns
+            .column.is-1
+            .column
+                .tile.is-parent
+                    article.tile.is-child.is-child.box
+                        .content
+                            p.title Announcements
+                            p.subtitle Make a new announcement
+                            .content
+                                form
+                                    label.label Title
+                                    p.control
+                                        input(type="text", placeholder="Enter a Headline for the announcement").input#title
+                                    label.label Details 
+                                    p.control
+                                        textarea(placeholder="Enter the details about the announcement").textarea#details
+                                    p.control
+                                        button.button.is-primary#submitAnnouncement Submit
+            .column.is-1
+            .column
+                .tile.is-parent
+                    article.tile.is-child.is-child.box
+                        .content
+                            p.title Events
+                            p.subtitle Add a new Event
+                            .content
+                                form
+                                    label.label Name
+                                    p.control
+                                        input(type="text", placeholder="Enter a Name for the event").input#name
+                                    label.label Description
+                                    p.control
+                                        textarea(placeholder="Enter the event's description").textarea#description
+                                    label.label Image
+                                    p.control
+                                        input(type="text", placeholder="Enter a Dropbox link for the image").input#url
+                                    label.label Date
+                                    p.control
+                                        input(type="date").input#date 
+                                    p.control
+                                        button.button.is-primary#addEvent Submit
+            .column.is-1
+    .row
+        .columns
+            .column.is-1
+            .column
+                .tile.is-parent
+                    article.tile.is-child.is-child.box
+                        .content
+                            p.title Podcasts
+                            p.subtitle Add a new Podcast
+                            .content
+                                form
+                                    label.label Title
+                                    p.control
+                                        input(type="text", placeholder="Enter a Name for the Podcast").input#podName
+                                    label.label Sermon Notes
+                                    p.control
+                                        textarea(placeholder="Enter the Sermon Notes").textarea#notes
+                                    label.label URL Link
+                                    p.control
+                                        input(type="text", placeholder="Enter a Dropbox link for the podcast").input#link
+                                    p.control
+                                        button.button.is-primary#publishPodcast Submit
+
+            .column.is-1
+            .column
+            .column.is-1
+    script(src="bower_components/DateJS/build/date.js")
+    script(src="scripts/pushData.js")
