@@ -23,11 +23,17 @@ $(document).ready(function() {
         var imageLink = $("#url").val();
         var eventDate = $("#date").val();
 
-        rufDB.child("events").push({
+        var newEvent = rufDB.child("events").push({
             date: eventDate,
             description: eventDescription,
             image: imageLink,
             name: eventName,
+            attendees: {"a": "filler" },
+        });
+
+        newID = newEvent.key();
+        newEvent.update({
+            "fireID": newID,
         });
 
         alert("successfully added an event");
@@ -40,11 +46,16 @@ $(document).ready(function() {
         var podLink = $("#link").val();
         var dateFormatted = Date.today().toString("MM-d-yyyy");
 
-        rufDB.child("podcasts").push({
+        var newPodcast = rufDB.child("podcasts").push({
             date: dateFormatted,
             description: podNotes,
             image: podLink,
             name: podName,
+        });
+
+        var newID = newPodcast.key();
+        newPodcast.update({
+            "fireID": newID,
         });
 
         alert("successfully added a podcast");
