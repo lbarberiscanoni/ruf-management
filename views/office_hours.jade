@@ -8,7 +8,7 @@ head
     script(src="https://cdn.firebase.com/js/client/2.2.6/firebase.js")
 body
     .row
-        h1.title.is-1.text-center RUF Calendar
+        h1.title.is-1.text-center RUF Office Hours
             a(href="../index.html").btn.btn-default HOME
             .col-md-2
                 select.form-control#person
@@ -16,7 +16,18 @@ body
                     option Britton
                     option Jess
                     option Eric
-    #calendar
-    script(src="../bower_components/moment/moment.js")
-    script(src="../bower_components/fullcalendar/dist/fullcalendar.js")
-    script(src="../scripts/calendar.js")
+    .row
+        .col-md-1
+        .col-md-4
+            h3 Pending
+            #pending
+        .col-md-2
+        .col-md-4
+            .row
+                h3 Accepted
+                #accepted
+            .row
+                h3 Rejected
+                #rejected
+        .col-md-1
+    script(src="../scripts/office_hours.js")

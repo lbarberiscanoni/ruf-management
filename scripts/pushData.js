@@ -5,12 +5,12 @@ $(document).ready(function() {
         var announcementTitle = $("#title").val();
         var announcementDetails = $("#details").val();
 
-        var dateFormatted = Date.today().toString("MM-d-yyyy");
+        var rawDate = Date.today().toString();
 
         rufDB.child("announcements").push({
             "name": announcementTitle,
             "description": announcementDetails,
-            "date": dateFormatted,
+            "date": rawDate,
         });
 
         alert("successfully added an announcement");
@@ -22,10 +22,15 @@ $(document).ready(function() {
         var eventDescription = $("#description").val();
         var imageLink = $("#url").val();
         var eventDate = $("#date").val();
+        var eventDate = new Date(eventDate).toString()
+        var startTime = $("#start").val();
+        var endTime = $("#end").val();
 
         var newEvent = rufDB.child("events").push({
             date: eventDate,
             description: eventDescription,
+            start: startTime,
+            end: endTime,
             image: imageLink,
             name: eventName,
             attendees: {"a": "filler" },
@@ -44,7 +49,7 @@ $(document).ready(function() {
         var podName = $("#podName").val();
         var podNotes = $("#notes").val();
         var podLink = $("#link").val();
-        var dateFormatted = Date.today().toString("MM-d-yyyy");
+        var dateFormatted = Date.today().toString()
 
         var newPodcast = rufDB.child("podcasts").push({
             date: dateFormatted,

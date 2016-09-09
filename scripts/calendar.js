@@ -35,21 +35,28 @@ $(document).ready(function() {
         });
     };
 
-    appointmentList = []
-    $.ajax({
-        async: false,
-        url: "https://grace-prez.firebaseio.com/ruf/officeHours/.json",
-        dataType: 'json',
-        cache: false,
-        success: function(data) {
-            console.log(data);
-            fireIDList = Object.keys(data);
-            for (i = 0; i < fireIDList.length - 1; i++) {
-                if (fireIDList[i] != "a") {
-                    appointmentList.push(data[fireIDList[i]]);
+    $("#person").change(function() {
+        var personSelected = $("#person").val();
+
+        appointmentList = []
+        $.ajax({
+            async: false,
+            url: "https://grace-prez.firebaseio.com/ruf/officeHours/.json",
+            dataType: 'json',
+            cache: false,
+            success: function(data) {
+                console.log(data);
+                fireIDList = Object.keys(data);
+                for (i = 0; i < fireIDList.length - 1; i++) {
+                    if (fireIDList[i] != "a") {
+                        currentOb = data[fireIDList[i]]
+                        if (currentOb.person == personSelected) {
+                            appointmentList.push(data[fireIDList[i]]);
+                        }
+                    };
                 };
-            };
-            initCalendar(appointmentList);
-        },
+                initCalendar(appointmentList);
+            },
+        });
     });
 });

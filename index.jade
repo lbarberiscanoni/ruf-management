@@ -10,7 +10,8 @@ body
     br
     .row
         h1.title.is-1.text-center Welcome Back Britton!
-            a(href="views/calendar.html").button CALENDAR
+            a(href="views/calendar.html").button Calendar
+            a(href="views/office_hours.html").button Office Hours
     br
     .row
         .columns
@@ -52,6 +53,14 @@ body
                                     label.label Date
                                     p.control
                                         input(type="date").input#date 
+
+                                    label.label Start
+                                    p.control
+                                        input(type="time").input#start 
+
+                                    label.label End
+                                    p.control
+                                        input(type="time").input#end 
                                     p.control
                                         button.button.is-primary#addEvent Submit
             .column.is-1
@@ -82,4 +91,5 @@ body
             .column
             .column.is-1
     script(src="bower_components/DateJS/build/date.js")
+    script(src="bower_components/moment/moment.js")
     script(src="scripts/pushData.js")
